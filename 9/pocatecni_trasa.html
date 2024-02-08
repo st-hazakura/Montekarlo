@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_5eea4295d7a9ac3ba71e32ee05136498 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_5eea4295d7a9ac3ba71e32ee05136498" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_5eea4295d7a9ac3ba71e32ee05136498 = L.map(
+                "map_5eea4295d7a9ac3ba71e32ee05136498",
+                {
+                    center: [49.92397375, 15.59772625],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 1,
+                    zoomControl: false,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_fdeaa71d93025e6289eb35e0d4123dae = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_fdeaa71d93025e6289eb35e0d4123dae.addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            var poly_line_defbc48a80cdc11b8dd4c12882477fed = L.polyline(
+                [[49.756, 16.4683], [50.4331, 15.8122], [50.5031, 13.6367], [50.4167, 16.163], [50.5873, 15.1569], [50.4367, 15.3517], [50.15, 14.1], [49.6856, 18.3506], [50.1425, 15.1189], [50.2411, 14.3116], [49.4722, 17.1106], [49.1925, 16.6083], [50.4611, 13.4167], [50.5481, 13.7761], [49.5627, 15.9393], [49.2099, 17.5308], [49.5995, 18.1448], [50.5342, 14.1328], [49.5944, 18.0103], [49.9917, 14.6543], [50.0386, 15.7792], [49.8452, 18.4302], [49.8542, 18.5428], [50.3506, 14.4742], [50.0906, 17.6986], [50.3571, 13.7968], [49.215, 15.8817], [50.9116, 14.6184], [50.2414, 12.7439], [49.7461, 18.6261], [49.4003, 15.5906], [50.6008, 13.6112], [50.7244, 15.1681], [49.9381, 17.9044], [49.9483, 15.2683], [49.9042, 18.3575], [49.7475, 13.3775], [50.6444, 13.8319], [49.4718, 17.9712], [50.6886, 14.5386], [50.0875, 14.4214], [50.4125, 14.9044], [50.2593, 14.5177], [50.1894, 14.6672], [49.9883, 17.4647], [49.9511, 15.7956], [49.3387, 17.9962], [50.2305, 14.087], [49.2989, 17.3931], [48.9747, 14.4747], [49.4144, 14.6578], [49.7428, 13.5946], [49.5939, 17.2508], [49.2615, 13.9024], [50.6583, 14.0417], [50.0833, 14.3579], [48.8556, 16.0489], [48.8111, 14.3153], [50.3273, 13.5459], [49.3631, 16.6431], [49.2331, 17.6669], [50.1814, 12.6402], [50.1038, 13.7335], [49.2247, 16.5239], [50.0281, 15.2006], [49.7831, 18.4228], [50.4999, 13.4478], [50.2306, 12.8725], [49.9653, 16.9707], [49.0697, 17.4597], [49.4556, 17.4511], [49.8356, 18.2925], [49.8967, 18.1931], [50.1861, 15.0417], [50.7667, 15.0667], [49.3089, 14.1475], [49.6883, 14.0092], [50.2092, 15.8322], [49.2075, 16.6861], [49.9642, 14.0739]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            var circle_marker_fa7f5ad26ea42547f03db72ff509d652 = L.circleMarker(
+                [50.0875, 14.4214],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_fa7f5ad26ea42547f03db72ff509d652.bindTooltip(
+                `<div>
+                     0: Prague
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_76a6a14745f43c347f6dd4ba307fe71f = L.circleMarker(
+                [49.5939, 17.2508],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_76a6a14745f43c347f6dd4ba307fe71f.bindTooltip(
+                `<div>
+                     1: Olomouc
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_f4af8836ae3fad9fee67355974991e5b = L.circleMarker(
+                [49.1925, 16.6083],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_f4af8836ae3fad9fee67355974991e5b.bindTooltip(
+                `<div>
+                     2: Brno
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_ec667f5a15b4240052c6262f54f4aa7b = L.circleMarker(
+                [49.8356, 18.2925],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_ec667f5a15b4240052c6262f54f4aa7b.bindTooltip(
+                `<div>
+                     3: Ostrava
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_452dabc9bcb5c5724f859239f127133f = L.circleMarker(
+                [49.7475, 13.3775],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_452dabc9bcb5c5724f859239f127133f.bindTooltip(
+                `<div>
+                     4: Plzeň
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_56e338d91c51d4d1b909c3ac6a9afee1 = L.circleMarker(
+                [50.7667, 15.0667],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_56e338d91c51d4d1b909c3ac6a9afee1.bindTooltip(
+                `<div>
+                     5: Liberec
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_a1e82f41260339019f4847303122d407 = L.circleMarker(
+                [48.9747, 14.4747],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_a1e82f41260339019f4847303122d407.bindTooltip(
+                `<div>
+                     6: České Budějovice
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_5442616672ae588d3db6e64e5a652ecc = L.circleMarker(
+                [50.2092, 15.8322],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_5442616672ae588d3db6e64e5a652ecc.bindTooltip(
+                `<div>
+                     7: Hradec Králové
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_452f8693358255f0201f0dd8da8e7a0e = L.circleMarker(
+                [50.6583, 14.0417],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_452f8693358255f0201f0dd8da8e7a0e.bindTooltip(
+                `<div>
+                     8: Ústí nad Labem
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_7c7b18342a7e968a058c360350feafea = L.circleMarker(
+                [50.0386, 15.7792],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_7c7b18342a7e968a058c360350feafea.bindTooltip(
+                `<div>
+                     9: Pardubice
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_902a7294b5723d797ce25dbc7d0a1570 = L.circleMarker(
+                [49.2331, 17.6669],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_902a7294b5723d797ce25dbc7d0a1570.bindTooltip(
+                `<div>
+                     10: Zlín
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_1566cda7485ae6e0f8d6610e1debc873 = L.circleMarker(
+                [49.7831, 18.4228],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_1566cda7485ae6e0f8d6610e1debc873.bindTooltip(
+                `<div>
+                     11: Havířov
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_dfbf2a447b34b0c3e6d110ff5c9018a0 = L.circleMarker(
+                [50.15, 14.1],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_dfbf2a447b34b0c3e6d110ff5c9018a0.bindTooltip(
+                `<div>
+                     12: Kladno
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_039d998b93aa094c6c5ccbcfaf8845a8 = L.circleMarker(
+                [50.5031, 13.6367],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_039d998b93aa094c6c5ccbcfaf8845a8.bindTooltip(
+                `<div>
+                     13: Most
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_64c8c3678482bed97da0afa826e6f8b9 = L.circleMarker(
+                [49.9381, 17.9044],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_64c8c3678482bed97da0afa826e6f8b9.bindTooltip(
+                `<div>
+                     14: Opava
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_6ee526b165491bc66778f905f3e336ed = L.circleMarker(
+                [49.6856, 18.3506],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_6ee526b165491bc66778f905f3e336ed.bindTooltip(
+                `<div>
+                     15: Frýdek-Místek
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_704de378fcf17e6bc58b78e73d4338e2 = L.circleMarker(
+                [49.4003, 15.5906],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_704de378fcf17e6bc58b78e73d4338e2.bindTooltip(
+                `<div>
+                     16: Jihlava
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_a507b300cfbe138072e081e938e7023e = L.circleMarker(
+                [49.8542, 18.5428],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_a507b300cfbe138072e081e938e7023e.bindTooltip(
+                `<div>
+                     17: Karviná
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_ff1fed75c37f7a31e162a3fcea89a9ee = L.circleMarker(
+                [50.6444, 13.8319],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_ff1fed75c37f7a31e162a3fcea89a9ee.bindTooltip(
+                `<div>
+                     18: Teplice
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_6092843fceb391d6d5038d0b4fb8e0a1 = L.circleMarker(
+                [50.4611, 13.4167],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_6092843fceb391d6d5038d0b4fb8e0a1.bindTooltip(
+                `<div>
+                     19: Chomutov
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_8aa033c164a806a309dac4ef41f16344 = L.circleMarker(
+                [50.2306, 12.8725],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_8aa033c164a806a309dac4ef41f16344.bindTooltip(
+                `<div>
+                     20: Karlovy Vary
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_dd2e7ccdadb5c33c60a60867972eb32c = L.circleMarker(
+                [50.7244, 15.1681],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_dd2e7ccdadb5c33c60a60867972eb32c.bindTooltip(
+                `<div>
+                     21: Jablonec nad Nisou
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_a820c8bb5ac08d31107fd037f623dc2f = L.circleMarker(
+                [50.4125, 14.9044],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_a820c8bb5ac08d31107fd037f623dc2f.bindTooltip(
+                `<div>
+                     22: Mladá Boleslav
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_e6c10b43370771438d6295abe1cd2107 = L.circleMarker(
+                [49.4722, 17.1106],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_e6c10b43370771438d6295abe1cd2107.bindTooltip(
+                `<div>
+                     23: Prostějov
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_63d2b21573c5e16706679169f229f7fa = L.circleMarker(
+                [49.4556, 17.4511],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_63d2b21573c5e16706679169f229f7fa.bindTooltip(
+                `<div>
+                     24: Přerov
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_cd7e9396ebc42db5956a46207bc7b7db = L.circleMarker(
+                [50.6886, 14.5386],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_cd7e9396ebc42db5956a46207bc7b7db.bindTooltip(
+                `<div>
+                     25: Česká Lípa
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_888243c3f650d24112c7675a4218bc8d = L.circleMarker(
+                [49.215, 15.8817],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_888243c3f650d24112c7675a4218bc8d.bindTooltip(
+                `<div>
+                     26: Třebíč
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_70893b56cdaedf3fce4b2d15aca5d584 = L.circleMarker(
+                [49.4144, 14.6578],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_70893b56cdaedf3fce4b2d15aca5d584.bindTooltip(
+                `<div>
+                     27: Tábor
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_8c869ea724682a69eea1781098617338 = L.circleMarker(
+                [48.8556, 16.0489],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_8c869ea724682a69eea1781098617338.bindTooltip(
+                `<div>
+                     28: Znojmo
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d0dc6cf92af91d9444aaeb45e512970f = L.circleMarker(
+                [50.0281, 15.2006],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_d0dc6cf92af91d9444aaeb45e512970f.bindTooltip(
+                `<div>
+                     29: Kolín
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_ba3301a524603153cf1df18700e11814 = L.circleMarker(
+                [49.6883, 14.0092],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_ba3301a524603153cf1df18700e11814.bindTooltip(
+                `<div>
+                     30: Příbram
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_8ed11bf8f61098cc9e87fefdd7b93ab1 = L.circleMarker(
+                [49.3089, 14.1475],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_8ed11bf8f61098cc9e87fefdd7b93ab1.bindTooltip(
+                `<div>
+                     31: Písek
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_419f3207c7bd549b26ef07eb8b0c285b = L.circleMarker(
+                [49.2989, 17.3931],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_419f3207c7bd549b26ef07eb8b0c285b.bindTooltip(
+                `<div>
+                     32: Kroměříž
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d72f0c029a34e0138e97fa41719f9e08 = L.circleMarker(
+                [49.8452, 18.4302],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_d72f0c029a34e0138e97fa41719f9e08.bindTooltip(
+                `<div>
+                     33: Orlová
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_0240627aaf3b696b5412195014b0897f = L.circleMarker(
+                [49.2075, 16.6861],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_0240627aaf3b696b5412195014b0897f.bindTooltip(
+                `<div>
+                     34: Líšeň
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d83d3d062af2d27db07d6d799c6ee468 = L.circleMarker(
+                [50.0833, 14.3579],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_d83d3d062af2d27db07d6d799c6ee468.bindTooltip(
+                `<div>
+                     35: Břevnov
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_99baa7e44341b26b488547e2efbe5647 = L.circleMarker(
+                [49.3387, 17.9962],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_99baa7e44341b26b488547e2efbe5647.bindTooltip(
+                `<div>
+                     36: Vsetín
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_71835cf165f19dcd47a5716c42157e36 = L.circleMarker(
+                [49.9653, 16.9707],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_71835cf165f19dcd47a5716c42157e36.bindTooltip(
+                `<div>
+                     37: Šumperk
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_28e38a47db2b0c47a34fc1798e7636c1 = L.circleMarker(
+                [49.0697, 17.4597],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_28e38a47db2b0c47a34fc1798e7636c1.bindTooltip(
+                `<div>
+                     38: Uherské Hradiště
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d8625d363bde944b49117f7ad641a716 = L.circleMarker(
+                [49.2247, 16.5239],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_d8625d363bde944b49117f7ad641a716.bindTooltip(
+                `<div>
+                     39: Bystrc
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_6eb74d9c639877d517e33f03f9095da0 = L.circleMarker(
+                [49.7461, 18.6261],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_6eb74d9c639877d517e33f03f9095da0.bindTooltip(
+                `<div>
+                     40: Český Těšín
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_8dad78c9b54ddaa1b880f77341515d63 = L.circleMarker(
+                [50.5342, 14.1328],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_8dad78c9b54ddaa1b880f77341515d63.bindTooltip(
+                `<div>
+                     41: Litoměřice
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_72a0c3e15cc61f28a5c59620bbbcda80 = L.circleMarker(
+                [50.6008, 13.6112],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_72a0c3e15cc61f28a5c59620bbbcda80.bindTooltip(
+                `<div>
+                     42: Litvínov
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_98747e20ccb341de31f68f5a781912ec = L.circleMarker(
+                [49.5944, 18.0103],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_98747e20ccb341de31f68f5a781912ec.bindTooltip(
+                `<div>
+                     43: Nový Jičín
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_2918092e4a92513e09fe903049587882 = L.circleMarker(
+                [49.9511, 15.7956],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_2918092e4a92513e09fe903049587882.bindTooltip(
+                `<div>
+                     44: Chrudim
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_3b31ae15b3b21b73f2ae4eb7854fece7 = L.circleMarker(
+                [50.0906, 17.6986],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_3b31ae15b3b21b73f2ae4eb7854fece7.bindTooltip(
+                `<div>
+                     45: Krnov
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_b63c249f9d1f71c393f0d49175c47695 = L.circleMarker(
+                [50.1814, 12.6402],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_b63c249f9d1f71c393f0d49175c47695.bindTooltip(
+                `<div>
+                     46: Sokolov
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_7b871c034772d7af2a5e1c68b5ff6654 = L.circleMarker(
+                [49.2615, 13.9024],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_7b871c034772d7af2a5e1c68b5ff6654.bindTooltip(
+                `<div>
+                     47: Strakonice
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_2af732ba6c8bc50885ffbfdcdb109af8 = L.circleMarker(
+                [49.4718, 17.9712],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_2af732ba6c8bc50885ffbfdcdb109af8.bindTooltip(
+                `<div>
+                     48: Valašské Meziříčí
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_fbc26bca316fec77b241f1c13709391e = L.circleMarker(
+                [49.5995, 18.1448],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_fbc26bca316fec77b241f1c13709391e.bindTooltip(
+                `<div>
+                     49: Kopřivnice
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d3f936baee8a5e729ac7561c3528643a = L.circleMarker(
+                [49.9483, 15.2683],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_d3f936baee8a5e729ac7561c3528643a.bindTooltip(
+                `<div>
+                     50: Kutná Hora
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_f7b0961490962db6246693f312d8c8af = L.circleMarker(
+                [49.5627, 15.9393],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_f7b0961490962db6246693f312d8c8af.bindTooltip(
+                `<div>
+                     51: Žďár nad Sázavou
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_88059b5f36f7d165e9a3ca1f1ded05e3 = L.circleMarker(
+                [49.9042, 18.3575],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_88059b5f36f7d165e9a3ca1f1ded05e3.bindTooltip(
+                `<div>
+                     52: Bohumín
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_6ca26a12f717c0203a8c70a0f419d145 = L.circleMarker(
+                [49.3631, 16.6431],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_6ca26a12f717c0203a8c70a0f419d145.bindTooltip(
+                `<div>
+                     53: Blansko
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_f90514f9a9c6daa7b801eac511c53aca = L.circleMarker(
+                [49.9642, 14.0739],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_f90514f9a9c6daa7b801eac511c53aca.bindTooltip(
+                `<div>
+                     54: Beroun
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d2c4ac62cc23fc9a31c4f97058184f19 = L.circleMarker(
+                [50.4167, 16.163],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_d2c4ac62cc23fc9a31c4f97058184f19.bindTooltip(
+                `<div>
+                     55: Náchod
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_471348a8635dad07a0e302324bf4010f = L.circleMarker(
+                [50.3506, 14.4742],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_471348a8635dad07a0e302324bf4010f.bindTooltip(
+                `<div>
+                     56: Mělník
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_e24bf9fb1c8a15f47d992bac765e4bf8 = L.circleMarker(
+                [50.1894, 14.6672],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_e24bf9fb1c8a15f47d992bac765e4bf8.bindTooltip(
+                `<div>
+                     57: Brandýs nad Labem-Stará Boleslav
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_23829841358dd36025d4af19d7a703b3 = L.circleMarker(
+                [50.4999, 13.4478],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_23829841358dd36025d4af19d7a703b3.bindTooltip(
+                `<div>
+                     58: Jirkov
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_54fe2ef17a5f91cfe0b474e43d63e54a = L.circleMarker(
+                [50.3273, 13.5459],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_54fe2ef17a5f91cfe0b474e43d63e54a.bindTooltip(
+                `<div>
+                     59: Žatec
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_c0929ff3d6d8a3eb60924cc01c21e62d = L.circleMarker(
+                [50.2411, 14.3116],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_c0929ff3d6d8a3eb60924cc01c21e62d.bindTooltip(
+                `<div>
+                     60: Kralupy nad Vltavou
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_62eb58530683ec841fa907a0098cedf3 = L.circleMarker(
+                [50.3571, 13.7968],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_62eb58530683ec841fa907a0098cedf3.bindTooltip(
+                `<div>
+                     61: Louny
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_08a0a73a94df2eaa25afc82460532bbd = L.circleMarker(
+                [49.2099, 17.5308],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_08a0a73a94df2eaa25afc82460532bbd.bindTooltip(
+                `<div>
+                     62: Otrokovice
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_b2f936beef08827ee765768624cc8df4 = L.circleMarker(
+                [50.5481, 13.7761],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_b2f936beef08827ee765768624cc8df4.bindTooltip(
+                `<div>
+                     63: Bílina
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_a810420eff0eb5cdbee8d021b1d704e0 = L.circleMarker(
+                [49.756, 16.4683],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_a810420eff0eb5cdbee8d021b1d704e0.bindTooltip(
+                `<div>
+                     64: Svitavy
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_ad58c2845a442c1269185ceff78fef47 = L.circleMarker(
+                [50.4367, 15.3517],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_ad58c2845a442c1269185ceff78fef47.bindTooltip(
+                `<div>
+                     65: Jičín
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_b12b02d8888a8081d62859d06fd9dd19 = L.circleMarker(
+                [49.9917, 14.6543],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_b12b02d8888a8081d62859d06fd9dd19.bindTooltip(
+                `<div>
+                     66: Říčany
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_49e95942c814338e2a9133df2bff485e = L.circleMarker(
+                [50.2593, 14.5177],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_49e95942c814338e2a9133df2bff485e.bindTooltip(
+                `<div>
+                     67: Neratovice
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_668a9e378e5634d0f17f0616b4ae5262 = L.circleMarker(
+                [50.2305, 14.087],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_668a9e378e5634d0f17f0616b4ae5262.bindTooltip(
+                `<div>
+                     68: Slaný
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_3d2e9e953e49dc8c79b90a6702bc14b7 = L.circleMarker(
+                [49.9883, 17.4647],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_3d2e9e953e49dc8c79b90a6702bc14b7.bindTooltip(
+                `<div>
+                     69: Bruntál
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_2453f6b29234a541f4bd87b789070bbf = L.circleMarker(
+                [50.1038, 13.7335],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_2453f6b29234a541f4bd87b789070bbf.bindTooltip(
+                `<div>
+                     70: Rakovník
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_ba4f77a1e8c61377952a95f4e1d3da10 = L.circleMarker(
+                [50.4331, 15.8122],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_ba4f77a1e8c61377952a95f4e1d3da10.bindTooltip(
+                `<div>
+                     71: Dvůr Králové nad Labem
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_6224ad7dd5d503c9d29e3cdc6e32d013 = L.circleMarker(
+                [50.9116, 14.6184],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_6224ad7dd5d503c9d29e3cdc6e32d013.bindTooltip(
+                `<div>
+                     72: Varnsdorf
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_446deb665b80dd91391dfbd408a5d63f = L.circleMarker(
+                [50.1861, 15.0417],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_446deb665b80dd91391dfbd408a5d63f.bindTooltip(
+                `<div>
+                     73: Nymburk
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_0bf850efe6797d2d8c13782dfe8fc892 = L.circleMarker(
+                [50.1425, 15.1189],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_0bf850efe6797d2d8c13782dfe8fc892.bindTooltip(
+                `<div>
+                     74: Poděbrady
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_59c51539db61f516333e13a1ca78bb16 = L.circleMarker(
+                [50.5873, 15.1569],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_59c51539db61f516333e13a1ca78bb16.bindTooltip(
+                `<div>
+                     75: Turnov
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_80079500033beed1fa5ab7d6f11a22a4 = L.circleMarker(
+                [49.7428, 13.5946],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_80079500033beed1fa5ab7d6f11a22a4.bindTooltip(
+                `<div>
+                     76: Rokycany
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_bd6676e3ca2773c24348f9769220af8f = L.circleMarker(
+                [49.8967, 18.1931],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_bd6676e3ca2773c24348f9769220af8f.bindTooltip(
+                `<div>
+                     77: Hlučín
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_844af79463622180c0c25292d6d9c298 = L.circleMarker(
+                [50.2414, 12.7439],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_844af79463622180c0c25292d6d9c298.bindTooltip(
+                `<div>
+                     78: Chodov
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_deaa255b251d8273cfeaf7eccce09673 = L.circleMarker(
+                [48.8111, 14.3153],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            circle_marker_deaa255b251d8273cfeaf7eccce09673.bindTooltip(
+                `<div>
+                     79: Český Krumlov
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var tile_layer_f57c645cd080666e13a7a936b5844c14 = L.tileLayer(
+                "http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
+                {"attribution": "CartoDB Positron", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 0.7, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_f57c645cd080666e13a7a936b5844c14.addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+        
+    
+            var layer_control_9d36f1a526d8596015c8c4c9aa2b0147_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_fdeaa71d93025e6289eb35e0d4123dae,
+                },
+                overlays :  {
+                    "Positron" : tile_layer_f57c645cd080666e13a7a936b5844c14,
+                },
+            };
+            let layer_control_9d36f1a526d8596015c8c4c9aa2b0147 = L.control.layers(
+                layer_control_9d36f1a526d8596015c8c4c9aa2b0147_layers.base_layers,
+                layer_control_9d36f1a526d8596015c8c4c9aa2b0147_layers.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_5eea4295d7a9ac3ba71e32ee05136498);
+
+        
+    
+            map_5eea4295d7a9ac3ba71e32ee05136498.fitBounds(
+                [[48.8111, 12.6402], [50.9116, 18.6261]],
+                {}
+            );
+        
+</script>
+</html>
